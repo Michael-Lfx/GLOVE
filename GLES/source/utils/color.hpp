@@ -17,7 +17,7 @@
 #define CLAMP(x)                                        ((x) > 0xff ? 0xff : ( (x) < 0 ? 0 : (x) ))
 #define CLAMP_F(x)                                      ((x) > 1.0f ? 1.0f : ( (x) < 0.0f ? 0.0f : (x) ))
 
-// TODO:: check and reimplement/optimize convertions for packed image formats if needed
+// TODO:: check and reimplement/optimize conversions for packed image formats if needed
 struct Color {
     unsigned char r, g, b, a;
 
