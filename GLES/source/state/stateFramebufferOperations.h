@@ -118,7 +118,7 @@ public:
                                                                                                            bool res = (mColorMask != mask);
                                                                                                            mColorMask = mask;
                                                                                                            return res; }
-      inline bool             UpdateDepthMask(GLenum enable)                    { FUN_ENTRY(GL_LOG_TRACE); bool res = (mDepthMask != enable);
+      inline bool             UpdateDepthMask(GLboolean enable)                    { FUN_ENTRY(GL_LOG_TRACE); bool res = (mDepthMask != enable);
                                                                                                            mDepthMask = enable;
                                                                                                            return res; }
       inline bool             UpdateStencilMask(GLuint mask)                    { FUN_ENTRY(GL_LOG_TRACE); GLuint m = mask & 0xFFu;
