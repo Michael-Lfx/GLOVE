@@ -87,7 +87,7 @@ public:
                                                                                                            mClearColor[1] = CLAMP_F(green);
                                                                                                            mClearColor[2] = CLAMP_F(blue);
                                                                                                            mClearColor[3] = CLAMP_F(alpha); }
-      inline void             SetClearDepth(GLfloat depth)                      { FUN_ENTRY(GL_LOG_TRACE); mClearDepth   = CLAMP_F(depth); }
+      inline void             SetClearDepth(GLclampf depth)                      { FUN_ENTRY(GL_LOG_TRACE); mClearDepth   = CLAMP_F(depth); }
       inline void             SetClearStencil(GLint stencil)                    { FUN_ENTRY(GL_LOG_TRACE); mClearStencil = stencil; }
       inline void             SetColorMask(GLchar mask)                         { FUN_ENTRY(GL_LOG_TRACE); mColorMask    = mask; }
 
@@ -103,7 +103,7 @@ public:
                                                                                                            mClearColor[0] = r; mClearColor[1] = g; mClearColor[2] = b; mClearColor[3] = a;
                                                                                                            return res; }
 
-      inline bool             UpdateClearDepth(GLfloat depth)                   { FUN_ENTRY(GL_LOG_TRACE); GLfloat d = CLAMP_F(depth);
+      inline bool             UpdateClearDepth(GLclampf depth)                   { FUN_ENTRY(GL_LOG_TRACE); GLfloat d = CLAMP_F(depth);
                                                                                                            bool res = (mClearDepth != d);
                                                                                                            mClearDepth = d;
                                                                                                            return res; }
