@@ -31,7 +31,7 @@
 #include "utils/VkToGlConverter.h"
 #include "utils/glUtils.h"
 
-#define NUMBER_OF_MIP_LEVELS(w, h)                      (std::floor(std::log2(std::max((w),(h)))) + 1)
+#define NUMBER_OF_MIP_LEVELS(w, h)                      (static_cast<GLint>(std::floor(std::log2(std::max((w),(h)))) + 1))
 
 // TODO:: this needs to be further discussed
 int Texture::mDefaultInternalAlignment = 1;
