@@ -43,7 +43,7 @@ private:
 
 public:
 // Constructor
-    Buffer(const vkContext_t *vkContext, const VkBufferUsageFlags vkBufferUsageFlags, const VkSharingMode vkSharingMode);
+    Buffer(const vkContext_t *vkContext = nullptr, const VkBufferUsageFlags vkBufferUsageFlags, const VkSharingMode vkSharingMode);
 
 // Destructor
     ~Buffer();
