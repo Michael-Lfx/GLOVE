@@ -23,15 +23,17 @@
 
 #include "context/context.h"
 
-#define CONTEXT_EXEC(func)          FUN_ENTRY(GL_LOG_INFO);                      \
-                                    Context * context = GetCurrentContext();     \
-                                    if (context) {                               \
-                                        context->func;                           \
-                                    }
+#define CONTEXT_EXEC(func)                             FUN_ENTRY(GL_LOG_INFO);                      \
+                                                       Context * context = GetCurrentContext();     \
+                                                       if (context) {                               \
+                                                           context->func;                           \
+                                                       }
 
-#define CONTEXT_EXEC_RETURN(func)   FUN_ENTRY(GL_LOG_INFO);                      \
-                                    Context * context = GetCurrentContext();     \
-                                    return context ? context->func : 0;
+#define CONTEXT_EXEC_RETURN_WITH_VALUE(func, retVal)   FUN_ENTRY(GL_LOG_INFO);                      \
+                                                       Context * context = GetCurrentContext();     \
+                                                       return context ? context->func : retVal;
+
+#define CONTEXT_EXEC_RETURN(func)                      CONTEXT_EXEC_RETURN_WITH_VALUE(fuc, 0)
 
 GL_APICALL void GL_APIENTRY
 glActiveTexture(GLenum texture)
@@ -378,7 +380,7 @@ glGetAttachedShaders(GLuint program, GLsizei maxcount, GLsizei* count, GLuint* s
 GL_APICALL int  GL_APIENTRY
 glGetAttribLocation(GLuint program, const char* name)
 {
-    CONTEXT_EXEC_RETURN(GetAttribLocation(program, name));
+    CONTEXT_EXEC_RETURN_WITH_VALUE(GetAttribLocation(program, name), -1);
 }
 
 GL_APICALL void GL_APIENTRY
@@ -492,7 +494,7 @@ glGetUniformiv(GLuint program, GLint location, GLint* params)
 GL_APICALL int  GL_APIENTRY
 glGetUniformLocation(GLuint program, const char* name)
 {
-    CONTEXT_EXEC_RETURN(GetUniformLocation(program, name));
+    CONTEXT_EXEC_RETURN_WITH_VALUE(GetUniformLocation(program, name), -1);
 }
 
 GL_APICALL void GL_APIENTRY
